@@ -21,12 +21,24 @@ export default function RootLayout({
       
       <body className={inter.className}>
         <Topbar/>
-        <main>
-          <Leftsidebar />
-          <Rightsidebar />
-        {children}
+        
+          <main>
+          
+            <Leftsidebar />
+            
+              <section className='main-container'>
+                  <div className='w-full max-w-4xl'>
+                  {children}
+                  </div>
+              </section>
+          
+            <Rightsidebar />
+        
+        
+       
         </main>
-        <Bottombar/>
+      
+      <Bottombar/>
         </body>
        
     </html>
