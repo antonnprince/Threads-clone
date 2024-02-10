@@ -13,7 +13,7 @@ const pathname = usePathname()
 
     return (
         <section className="custom-scrollbar leftsidebar">
-            <div className="flex w-full gap-6 px-6">
+            <div className="flex flex-col w-full gap-6 px-6">
                 {   
                     sidebarLinks.map((link) =>
                         {
@@ -36,8 +36,8 @@ const pathname = usePathname()
                 }
             </div>
 
-            <div className="mt-10 px-6">
-            <SignedIn>
+            <div className="mt-10 px-8">
+                <SignedIn>
                         <SignOutButton signOutCallback={()=>router.push('/sign-in')}>
                             <div className="flex cursor-pointer gap-4 p-4">
                                 <Image 
