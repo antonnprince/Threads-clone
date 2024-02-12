@@ -13,6 +13,9 @@ import {
   FormMessage,
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
+import * as z from "zod"
+
+
 
 interface Props {
       
@@ -36,6 +39,12 @@ const AccountProfile=({user, btnTitle} : Props)=> {
       bio:''
     }
   })
+
+  function onSubmit(values: z.infer<typeof UserValidation>) {
+    // Do something with the form values.
+    // ✅ This will be type-safe and validated.
+    console.log(values)
+  }
 
   return (
     <Form {...form}>
