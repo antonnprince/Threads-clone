@@ -19,6 +19,9 @@ import { ChangeEvent, useState } from "react";
 import { Textarea } from "../ui/textarea";
 import { isBase64Image } from "@/lib/utils";
 import {useUploadThing} from '@/lib/uploadthing'
+import { updateUser } from "@/lib/actions/user.actions";
+import { usePathname,useRouter } from "next/navigation";
+
 
 interface Props {
       
@@ -46,7 +49,7 @@ const AccountProfile=({user, btnTitle} : Props)=> {
     }
   })
 
-  const onSubmit = async(values: z.infer<typeof UserValidation>) {
+  const onSubmit = async(values: z.infer<typeof UserValidation>)=> {
     
     const blob = values.profile_photo;
     
@@ -88,6 +91,10 @@ const AccountProfile=({user, btnTitle} : Props)=> {
         filereader.readAsDataURL(file);
       }
 
+        await updateUser(
+          values.username, values.name, values.bio, values.profile_photo,
+          user.id, pathname
+        )
 
   }
 
