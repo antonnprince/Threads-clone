@@ -66,6 +66,11 @@ const AccountProfile=({user, btnTitle} : Props)=> {
         }
     }
 
+    await updateUser(
+      values.username, values.name, values.bio, values.profile_photo,
+      user.id, pathname
+    )
+
     
   }
 
@@ -91,11 +96,7 @@ const AccountProfile=({user, btnTitle} : Props)=> {
         filereader.readAsDataURL(file);
       }
 
-        await updateUser(
-          values.username, values.name, values.bio, values.profile_photo,
-          user.id, pathname
-        )
-
+       
   }
 
   return (
